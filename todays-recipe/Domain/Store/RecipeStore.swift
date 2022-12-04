@@ -12,32 +12,7 @@ import ComposableArchitecture
 
 struct RecipeState: Equatable {
     /// レシピ
-    struct Recipe: Equatable {
-        /// レシピ名
-        var name: String
-        /// レシピ画像
-        var image: URL
-        /// 何人前
-        var howManyServings: String
-        /// 材料
-        var materials: [String]
-        /// 手順
-        var procedure: [String]
-    }
-
-    struct Material: Equatable {
-        /// 材料名
-        var name: String
-        /// 分量
-        var quantity: String
-    }
-
-    struct Procedure: Equatable {
-        /// ステップ
-        var step: String
-        /// 説明文
-        var description: String
-    }
+    var recipe: Recipe
 }
 
 // MARK: - Action
