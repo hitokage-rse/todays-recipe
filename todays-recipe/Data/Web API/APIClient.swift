@@ -27,7 +27,7 @@ extension APIClient {
     func request<API: WebAPI>(api: API) async throws -> API.Response {
         let request = URLRequest(url: api.requestURL)
         let (data, response) = try await session.data(for: request)
-        if let response = response as? HTTPURLResponse, response.isSuccessCode {
+        if let response = response as? HTTPURLResponse, !response.isSuccessCode {
             throw WebAPIError(code: response.statusCode, message: response.description)
         }
         return try decoder.decode(API.Response.self, from: data)

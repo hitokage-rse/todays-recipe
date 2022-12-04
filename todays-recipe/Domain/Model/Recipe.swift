@@ -21,6 +21,7 @@ struct Recipe: Equatable {
     var procedure: [String]
 }
 
+/// 材料
 struct Ingredient: Equatable {
     /// 材料名
     var name: String
@@ -28,6 +29,7 @@ struct Ingredient: Equatable {
     var quantity: String
 }
 
+/// 手順
 struct Procedure: Equatable {
     /// ステップ
     var step: String

@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct todays_recipeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(
+                store: Store(
+                    initialState: RecipeSearch.State(),
+                    reducer: RecipeSearch()
+                )
+            )
         }
     }
 }
