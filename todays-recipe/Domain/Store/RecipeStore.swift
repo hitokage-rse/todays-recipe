@@ -47,7 +47,7 @@ enum RecipeAction: Equatable {
 }
 
 // MARK: - Reducer
-let recipeReducer = Reducer<RecipeState, RecipeAction, RecipeEnvironment> { state, action, _ in
+let recipeReducer = AnyReducer<RecipeState, RecipeAction, RecipeEnvironment> { state, action, _ in
     switch action {
     case .searchRandomly:
         return .none

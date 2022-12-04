@@ -123,5 +123,8 @@ Packages
 xcuserdata
 *.xcodeproj
 
+### XcodeGen ###
+*.xcworkspace
+
 
 # End of https://www.toptal.com/developers/gitignore/api/swift,macos,swiftpm
