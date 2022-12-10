@@ -8,12 +8,28 @@
 import Foundation
 
 /// アプリで扱うエラー
-struct AppError: Equatable {
-    let message: String
+enum AppError: Equatable, Error {
+    case general
+    case unexpected
+
+    var message: String {
+        switch self {
+        case .general:
+            return "もう一度お試しください"
+        case .unexpected:
+            return "予期せぬエラーが発生しました"
+        }
+    }
 }
 
+// MARK: - factory
 extension AppError {
-    static func makeFromAPI() -> Self {
-        AppError(message: "もう一度お試しください")
+    /// APIエラーから生成
+    static func make(error: Error) -> Self {
+        guard let error = error as? WebAPIError else { return .unexpected }
+        switch error {
+        case .general:
+            return .general
+        }
     }
 }

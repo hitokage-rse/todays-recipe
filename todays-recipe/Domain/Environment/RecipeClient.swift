@@ -20,8 +20,6 @@ extension DependencyValues {
 
 extension RecipeClient: DependencyKey {
     static let liveValue: RecipeClient = Self(
-        fetch: {
-            try await APIClient.shared.request(api: RecipeAPI(query: "todays-recipe"))
-        }
+        fetch: { try await APIClient.shared.request(api: RecipeAPI(query: "todays-recipe")) }
     )
 }

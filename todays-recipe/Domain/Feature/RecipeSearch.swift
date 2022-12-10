@@ -12,6 +12,8 @@ struct RecipeSearch: ReducerProtocol {
     struct State: Equatable {
         /// レシピ
         var recipe: RecipeAPIResponse?
+        /// エラー
+        var error: AppError?
     }
 
     enum Action: Equatable {
@@ -32,7 +34,7 @@ struct RecipeSearch: ReducerProtocol {
             state.recipe = response
             return .none
         case let .recipeResponse(.failure(error)):
-            print(error.localizedDescription)
+            state.error = AppError.make(error: error)
             return .none
         }
     }

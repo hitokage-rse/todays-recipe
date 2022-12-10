@@ -29,12 +29,7 @@ extension WebAPI {
 }
 
 // MARK: - Error
-protocol WebAPIErrorProtocol: Equatable, Error {
-    var code: Int { get }
-    var message: String { get }
-}
 
-struct WebAPIError: WebAPIErrorProtocol {
-    let code: Int
-    let message: String
+enum WebAPIError: Error {
+    case general
 }
